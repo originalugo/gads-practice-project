@@ -1,0 +1,30 @@
+#Start a kubernetes engine cluster
+export MY_ZONE= us-central1-a
+
+gcloud container clusters create webfrontend \
+--zone $MY_ZONE 
+--num-nodes 2
+
+##to check the version of kubernetes
+kubectl version
+
+##to view the running nodes
+
+
+##Run and deploy a container
+kubectl create deploy nginx --image=nginx:1.17.10
+
+##Expose the nginx container to the internet
+kubectl expose deployment nginx --port 80 --type LoadBalancer
+
+##To view the number of services
+kubectl get services
+
+##To scale up the number of pods running on yur service
+kubectl scale deployment nginx --replicas 3
+
+##To confirm that kubernetes has updated the number of pods
+kubectl get pods
+
+##To view the number of services
+kubectl get services
