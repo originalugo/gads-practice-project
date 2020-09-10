@@ -1,6 +1,12 @@
+Lab: Creating irtual Machines
+
+Objectives:
+- create several standard VMs
+- Create advanced VMs
+
 #Task 1
 ##Create a utility virtual machine
-Gcloud compute instances create vir-inst \
+gcloud compute instances create vir-inst \
 --region=us-central1 \
 --zone=us-central1-c \
 --machine-type=n1-standard-1 \
@@ -45,6 +51,25 @@ gcloud compute reset-windows-password win-server
 Gcloud compute instances create cust_vm
 --region=us-west1 --zone=us-west1-b \
 --machine-type=custom-6-32768
+
+##connecting to the custom VM via ssh
+gcloud compute ssh cust-vm
+
+##To see information about unused and used memory and swap space on the custom VM:
+free
+
+##To see details about the installed RAM:
+sudo dmidecode -t 17
+
+##To verify the number of processors running on the system:
+nproc
+
+##To see details of the CPUs installed on the system
+lscpu
+
+##To exit the ssh session
+exit
+
 
 
 
